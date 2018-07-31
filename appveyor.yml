@@ -29,6 +29,7 @@ install:
   # Prepend Python scripts to PATH (e.g. pip, py.test, pylint)
   - set PATH=%PYTHON_INSTALL%\\Scripts;%PATH%
 
+  - echo "PATH is %PATH%"
   # Check Python version
   - python --version
   
