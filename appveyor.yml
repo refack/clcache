@@ -97,7 +97,7 @@ test_script:
       $wc = New-Object 'System.Net.WebClient'
       $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\unittests.xml))
 
-      & $($env:PYTHON_INSTALL)\Scripts\codecov.exe --no-color -X gcov -F unittests -e PYTHON_INSTALL
+      & ${env:PYTHON_INSTALL}\Scripts\codecov.exe --no-color -X gcov -F unittests -e PYTHON_INSTALL
 
       if ($testsExitCode -ne 0) {exit $testsExitCode}
 
@@ -114,7 +114,7 @@ test_script:
       $wc = New-Object 'System.Net.WebClient'
       $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\integrationtests.xml))
 
-      & codecov --no-color -X gcov -F integrationtests_memcached -e PYTHON_INSTALL
+      & ${env:PYTHON_INSTALL}\Scripts\codecov.exe --no-color -X gcov -F integrationtests_memcached -e PYTHON_INSTALL
 
       if ($testsExitCode -ne 0) {exit $testsExitCode}
 
