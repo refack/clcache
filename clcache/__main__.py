@@ -488,6 +488,9 @@ class CompilerArtifactsRepository(object):
         argsToStrip = ("AI", "C", "E", "P", "FI", "u", "X",
                        "FU", "D", "EP", "Fx", "U", "I")
 
+        # Remove all arguments that deal with compiler warnings.
+        argsToStrip += ("W", "w")
+
         # Also remove the switch for specifying the output file name; we don't
         # want two invocations which are identical except for the output file
         # name to be treated differently.
